@@ -1,0 +1,24 @@
+services:
+  dev-db:
+    image: postgres:15.2
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: finance_dev
+    networks:
+      - pg99
+  
+  test-db:
+    image: postgres:15.2
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: finance_test
+    networks:
+      - pg99
+networks:
+  pg99:
